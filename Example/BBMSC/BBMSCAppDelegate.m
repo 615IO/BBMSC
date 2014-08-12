@@ -7,12 +7,33 @@
 //
 
 #import "BBMSCAppDelegate.h"
-
+#import "BBMSCLoginViewController.h"
+#import "BBMSCTwitterFollowersViewController.h"
+#import "BBMSCMainDM.h"
+#import "BBSubscriber.h"
+@interface BBMSCAppDelegate()<BBSubscriber>
+@property(nonatomic, strong)BBMSCMainDM *dm;
+@end
 @implementation BBMSCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    _dm = [[BBMSCMainDM alloc]init];
+    
+    [_dm subscribe:(BBSubscriber*)self];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    
+    UIViewController *launcherController = [[BBMSCLoginViewController alloc] initWithNibAndDM:_dm nibNameOrNil:@"BBMSCLoginViewController" bundle:nil];
+    
+    
+    self.window.rootViewController = launcherController;
+    [self.window makeKeyAndVisible];
+    
+    
     return YES;
 }
 							
@@ -41,6 +62,28 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)showFollowersView
+{
+    UIViewController * controller = [[BBMSCTwitterFollowersViewController alloc]initWithNibAndDM:_dm nibNameOrNil:@"BBMSCTwitterFollowersViewController" bundle:nil];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+    
+    [self.window addSubview:navigationController.view];
+}
+
+-(void)update:(BBDataObject *)data
+{
+    switch (data.dataType) {
+        case SHOW_FOLLOWERS_CHANGED:
+            if (((NSNumber*)data.data).boolValue == YES) {
+                [self showFollowersView];
+            }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end
