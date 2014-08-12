@@ -1,0 +1,20 @@
+PODS:
+  - BBMSC (1.0)
+  - Expecta (0.3.1)
+  - Specta (0.2.1)
+
+DEPENDENCIES:
+  - BBMSC (from `../`)
+  - Expecta
+  - Specta (~> 0.2.1)
+
+EXTERNAL SOURCES:
+  BBMSC:
+    :path: ../
+
+SPEC CHECKSUMS:
+  BBMSC: 5430e26c1afd3f3c50f36ea07631b0c1f0cd6bf4
+  Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
+  Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
+
+COCOAPODS: 0.33.1
