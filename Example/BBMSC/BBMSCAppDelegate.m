@@ -11,6 +11,7 @@
 #import "BBMSCTwitterFollowersViewController.h"
 #import "BBMSCMainDM.h"
 #import "BBSubscriber.h"
+
 @interface BBMSCAppDelegate()<BBSubscriber>
 @property(nonatomic, strong)BBMSCMainDM *dm;
 @end

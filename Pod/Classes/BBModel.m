@@ -32,7 +32,7 @@
         _views = [[NSMutableArray alloc] init];
     
     if([self hasView:view] == YES)
-        [NSException raise:@"This view already exists.  Cannot add duplicate view." format:@"Error in Model::registerView"];
+        NSLog(@"this subscriber is already subscribed to the model");
     else
         [self addView:view];
 }

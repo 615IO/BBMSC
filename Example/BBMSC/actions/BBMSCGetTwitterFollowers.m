@@ -31,7 +31,7 @@
     
     NSURL *url = [[NSURL alloc]initWithString:@"https://api.twitter.com/1.1/followers/list.json"];
     
-    id params = @{@"skip_status":@"0", @"screen_name": @"matthewswallace", @"count": @"100"};
+    id params = @{@"skip_status":@"0", @"screen_name": @"matthewswallace", @"count": @"20"};
     
     SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter
                                             requestMethod:SLRequestMethodGET URL:url parameters:params];
