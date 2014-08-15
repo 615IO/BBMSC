@@ -32,7 +32,14 @@
         _views = [[NSMutableArray alloc] init];
     
     if([self hasView:view] == YES)
-        NSLog(@"this subscriber is already subscribed to the model");
+    {
+        for (int i =0; i < _views.count; i++) {
+            BBSubscriber *s = _views[i];
+            if (s == view) {
+                _views[i] = view;
+            }
+        }
+    }
     else
         [self addView:view];
 }
