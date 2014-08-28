@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "BBMSC"
-  s.version          = "1.0.1"
+  s.version          = "1.0.2"
   s.summary          = "BBMSC is a simple Model / Subscriber / Controller framwork."
 
   s.homepage         = "https://github.com/615IO/BBMSC"

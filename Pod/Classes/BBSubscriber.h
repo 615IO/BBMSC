@@ -20,4 +20,6 @@
 
 @optional
 - (id)initWithNibAndDM:(NSObject*)dm nibNameOrNil:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
+
+-(void)destroy:(id)sender;
 @end

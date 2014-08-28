@@ -15,5 +15,6 @@
 
 -(void)subscribe:(BBSubscriber*)view;
 -(void)update:(BBDataObject*)obj;
+- (void)unsubscribe:(BBSubscriber*)view;
 
 @end

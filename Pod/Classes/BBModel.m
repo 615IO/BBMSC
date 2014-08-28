@@ -44,6 +44,12 @@
         [self addView:view];
 }
 
+- (void)unsubscribe:(BBSubscriber*)view {
+    if (_views && [self hasView:view]) {
+        [_views removeObject:view];
+    }
+}
+
 -(void)update:(BBDataObject*)data
 {
     if(_views)
